@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# ChartYap
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ChartYap** is an intelligent data visualization tool that bridges the gap between raw data and desired aesthetics. 
+It combines **Simultaneous Data & Image Upload** to understand not just *what* you want to visualize, but *how* you want it to look.
 
-Currently, two official plugins are available:
+![App Screenshot](public/vite.svg) *<!-- Replace with actual screenshot later -->*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+*   **Dual Input Engine**: Upload your dataset (Excel, CSV, JSON) and an inspiration image side-by-side.
+*   **Style Matcher**: The system analyzes your uploaded image (e.g., a "Density Plot" or "Pie Chart") and automatically prioritizes that chart type for your data.
+*   **20+ Supported Chart Types**:
+    *   **Basics**: Bar, Line, Area, Scatter, Pie, Donut.
+    *   **Advanced**: Density Plots, Heatmaps, Trellis (Faceted) Charts, Radial Bars.
+    *   **Complex**: Dual Axis, 100% Stacked Area/Bar, Pyramid Charts.
+*   **Smart Analysis**: Automatically detects categorical, numerical, and date columns to suggest the most relevant visualizations.
+*   **Swiss Design**: A minimalist, high-contrast UI inspired by the International Typographic Style.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+*   **Frontend**: React (Vite)
+*   **Language**: TypeScript
+*   **Styling**: Tailwind CSS (v4)
+*   **Visualization**: Vega-Lite (via React-Vega)
+*   **Icons**: Lucide React
+*   **Data Parsing**: SheetJS (XLSX)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/mustafa-karakoyun/ChartYap.git
+    cd ChartYap
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2.  Install dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4.  Open `http://localhost:5173` in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 How It Works
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Drag & Drop Data**: Drop your Excel or CSV file into the left box.
+2.  **Drag & Drop Style**: Drop a chart image (screenshot, photo) into the right box.
+3.  **Analysis**:
+    *   The app mimics a vision analysis to identify the chart type in your image.
+    *   It analyzes your data's structure (columns, types).
+4.  **Generation**: It generates a list of recommended charts, boosting the ranking of the chart type that matches your uploaded image.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1.  Fork the project
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
